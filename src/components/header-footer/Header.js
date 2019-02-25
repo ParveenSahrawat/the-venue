@@ -7,18 +7,24 @@ import AppBar from '@material-ui/core/AppBar';
 import SideDrawer from './SideDrawer';
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
 
+        this.handleScroll = this.handleScroll.bind(this);
+        this.componentDidMount = this.componentDidMount.bind(this);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
+    }
     state = {
         drawerOpen : false,
         headerShow : false,
     }
 
     handleScroll() {
-        // if(window.scrollY > 0) {
-        //     this.setState({headerShow : false});
-        // } else {
-        //     this.setState({headerShow : true});
-        // }
+        if(window.scrollY > 0) {
+            this.setState({headerShow : true});
+        } else {
+            this.setState({headerShow : false});
+        }
     }
 
     componentDidMount() {
